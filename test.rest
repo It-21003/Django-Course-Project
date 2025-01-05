@@ -1,0 +1,73 @@
+GET http://127.0.0.1:8000/api/v1/products
+Content-Type: application/json
+
+###
+POST http://127.0.0.1:8000/api/v1/token/
+Content-Type: application/json
+
+{
+    "username":"staff-user",
+    "password":"admin@123"
+}
+
+###
+POST http://127.0.0.1:8000/api/v1/token/refresh/
+Content-Type: application/json
+
+{"refresh":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyODI4MDU5MCwiaWF0IjoxNzI4MTk0MTkwLCJqdGkiOiIxNTJiZjhmMTc3Mjk0ZTc0Yjc4ZjY0NDU4ZDYzYWYwMiIsInVzZXJfaWQiOjQsImlzQWRtaW4iOnRydWV9.tJamzwnrmw_BvMv_xvfU6Q3j6bHl3wlJMIC7APF8vfs"}
+
+###
+POST http://127.0.0.1:8000/api/v1/products/
+Content-Type: application/json
+Authorization: Bearer 
+ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4MTk1OTkwLCJpYXQiOjE3MjgxOTQxOTAsImp0aSI6IjYzYWFiMzU1NzNiYTQxZDBhY2NkY2VjZWViNGMyNjQ5IiwidXNlcl9pZCI6NCwiaXNBZG1pbiI6dHJ1ZX0.uaWMqAGNeORR9GVVgsWWFyb8f9AfBKCQ2iDeSGVKJeU
+
+{
+    "name":"p-2",
+    "description":"p-2",
+    "price":100,
+    "stock":120,
+    "supplier":"supplier-1"
+}
+
+###
+GET http://127.0.0.1:8000/api/v1/products/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4MTQ0MTEyLCJpYXQiOjE3MjgxNDIzMTIsImp0aSI6IjNjMDZkNGRiMGJhNTQ2NGRiNDFkOTBkMzQ3ZmZjMDAyIiwidXNlcl9pZCI6MSwiaXNBZG1pbiI6dHJ1ZX0.zoeRB9LzMzVTU4ALIG2vIBXBBsAy4VoA7BgsJNaGlhQ
+
+
+
+###
+GET http://127.0.0.1:8000/api/v1/products/1
+Content-Type: application/json
+Authorization: Bearer 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4MTk1NjU0LCJpYXQiOjE3MjgxOTM4NTQsImp0aSI6IjQzMjJjY2IzMWEwMDQxNjZhNDQ0YzA0ZTdkMGRiZDI2IiwidXNlcl9pZCI6MywiaXNBZG1pbiI6ZmFsc2V9.pOpqFUmrbW0n_TcplkqsZyqTHyfAPQJHD0ccg4ZbCqw
+
+###
+PUT http://127.0.0.1:8000/api/v1/products/2/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4MTQ0MTEyLCJpYXQiOjE3MjgxNDIzMTIsImp0aSI6IjNjMDZkNGRiMGJhNTQ2NGRiNDFkOTBkMzQ3ZmZjMDAyIiwidXNlcl9pZCI6MSwiaXNBZG1pbiI6dHJ1ZX0.zoeRB9LzMzVTU4ALIG2vIBXBBsAy4VoA7BgsJNaGlhQ
+ 
+ { "name":"p-2",
+   "description":"p-2",
+   "price":1560,
+   "stock":1780,
+   "supplier":"supplier-1"
+}
+
+###
+PATCH  http://127.0.0.1:8000/api/v1/products/2/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4MTQ0MTEyLCJpYXQiOjE3MjgxNDIzMTIsImp0aSI6IjNjMDZkNGRiMGJhNTQ2NGRiNDFkOTBkMzQ3ZmZjMDAyIiwidXNlcl9pZCI6MSwiaXNBZG1pbiI6dHJ1ZX0.zoeRB9LzMzVTU4ALIG2vIBXBBsAy4VoA7BgsJNaGlhQ
+
+{
+    "supplier":"supplier-8"
+}
+
+###
+DELETE  http://127.0.0.1:8000/api/v1/products/3/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI4MTQ0Nzk0LCJpYXQiOjE3MjgxNDI5OTQsImp0aSI6IjAxYmFmMWVjNGE4MTRiZjk5YWYzMWMzYWY2ZTQ1YTE2IiwidXNlcl9pZCI6MiwiaXNBZG1pbiI6ZmFsc2V9.ZYqjhVX7UeEFdXnN7ZzPCobklAhjmbf6hBhY2U7gFU0
+
+
+
